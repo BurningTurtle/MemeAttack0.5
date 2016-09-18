@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Spectrum_Background : MonoBehaviour {
@@ -19,7 +20,14 @@ public class Spectrum_Background : MonoBehaviour {
 
         if (Mathf.Lerp(previousScale.y, spectrum[2] * 8, Time.deltaTime * 30) > 1 && initiated == true)
         {
-            previousScale.y = Mathf.Lerp(previousScale.y, spectrum[2] * 8, Time.deltaTime * 30);
+            if (SceneManager.GetActiveScene().name ==  "MainMenue")
+            {
+                previousScale.y = Mathf.Lerp(previousScale.y, spectrum[2] * 8, Time.deltaTime * 30);
+            }
+            else
+            {
+                previousScale.y = Mathf.Lerp(previousScale.y, spectrum[2] * 4, Time.deltaTime * 30);
+            }
         }
         else if (Mathf.Lerp(previousScale.y, spectrum[2] * 8, Time.deltaTime * 30) > 0.1 && initiated == false)
         {
@@ -28,7 +36,14 @@ public class Spectrum_Background : MonoBehaviour {
 
         if (Mathf.Lerp(previousScale.x, spectrum[2] * 8, Time.deltaTime * 30) > 1 && initiated == true)
         {
-            previousScale.x = Mathf.Lerp(previousScale.x, spectrum[2] * 8, Time.deltaTime * 30);
+            if (SceneManager.GetActiveScene().name == "MainMenue")
+            {
+                previousScale.x = Mathf.Lerp(previousScale.x, spectrum[2] * 8, Time.deltaTime * 30);
+            }
+            else
+            {
+                previousScale.x = Mathf.Lerp(previousScale.x, spectrum[2] * 4, Time.deltaTime * 30);
+            }
         }
         else if (Mathf.Lerp(previousScale.x, spectrum[2] * 8, Time.deltaTime * 30) > 0.1 && initiated == false)
         {
